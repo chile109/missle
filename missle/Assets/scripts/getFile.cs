@@ -11,7 +11,7 @@ public class getFile : MonoBehaviour {
     {
         fileName = GetComponent<Text>();
         print(fileName.text);   //Text為組件,text為內容  不用ToString();
-        SceneManager.LoadScene("MAIN");
+        SceneManager.LoadScene("MAIN2");
 
     }
 }
