@@ -8,14 +8,16 @@ using UnityEngine.UI;
 public class playmovie5 : MonoBehaviour {
     List<WWW> arwww = new List<WWW>();//圖片陣列
 
+    public RenderHeads.Media.AVProWindowsMedia.Demos.VcrDemo vcrdemo;
     public GameObject movie;
+    public GameObject vcr;
     public string target  = @"C:\Users\chile109\Desktop\武裝\";
     string url = "";
     DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\chile109\Desktop\武裝\" + getFile.fileName.text);
 
     RawImage player;
     Texture2D img;
-    private int k = 0;
+    public static int kj = 0;
 
     void Start()
     {
@@ -58,34 +60,32 @@ public class playmovie5 : MonoBehaviour {
     }
     void Update()
     {
-        if(k == dirInfo.GetFiles("*.jpg").Length - 1)
-        {
-            this.gameObject.SetActive(false);
-            movie.SetActive(true);
-        }
+        
     }
     public void right()
     {
-        k += 1;
-        if (k > dirInfo.GetFiles("*.jpg").Length - 1)
+        kj += 1;
+        print(kj);        
+        if (kj > dirInfo.GetFiles("*.jpg").Length - 1)
         {
-            k = dirInfo.GetFiles("*.jpg").Length - 1;
-            print(k);
+            movie.SetActive(true);           
+            this.gameObject.SetActive(false);
         }
         else 
-           StartCoroutine(loadPic(k));
+           StartCoroutine(loadPic(kj));
         
 
     }
     public void left()
     {
-        if (k > 0)
+        if (kj > 0)
         { //減少
-            k -= 1;
-    
-            StartCoroutine(loadPic(k));
-            
+            kj -= 1;
+            StartCoroutine(loadPic(kj));
         }
+        
+            
+        
     }
 }
 

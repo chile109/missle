@@ -88,19 +88,28 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
         }
         public void Next()
         {
-            NextMovie();
+            
+                playmovie5.kj = dirInfo.GetFiles("*.jpg").Length - 1;
+                NextMovie();
+            
+            
         }
         public void Previous()
         {
-            _index -= 2;
-            if (_index < -1)
+            
+            if (_index > 0)
+            {
+                _index -= 2;
+                print(_index);
+                NextMovie();                
+            }
+            else
             {
                 this.gameObject.SetActive(false);
-                _index = 0;
                 movie.SetActive(false);
+                image.SetActive(true);
             }
-               
-            NextMovie();
+            
         }
         public void OnPauseButton()
 		{
