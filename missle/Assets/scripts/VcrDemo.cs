@@ -75,8 +75,7 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
             if (_movie)
             {
                 _movie.Play();
-                SetButtonEnabled("PlayButton", false);
-                SetButtonEnabled("PauseButton", true);
+                
             }
         }
         public void Pause()
@@ -88,9 +87,9 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
         }
         public void Next()
         {
-            
-                playmovie5.kj = dirInfo.GetFiles("*.jpg").Length - 1;
-                NextMovie();
+            timespanBar2.page_index += 1;
+            playmovie5.kj = dirInfo.GetFiles("*.jpg").Length - 1;
+            NextMovie();
             
             
         }
@@ -99,8 +98,9 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
             
             if (_index > 0)
             {
+                timespanBar2.page_index -= 1;
                 _index -= 2;
-                print(_index);
+                
                 NextMovie();                
             }
             else
@@ -116,8 +116,7 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
 			if( _movie )
 			{
 				_movie.Pause();
-				SetButtonEnabled( "PauseButton", false );
-				SetButtonEnabled( "PlayButton", true );
+				
 			}
 		}
 
@@ -137,8 +136,7 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
 				if( _wasPlayingOnScrub )
 				{
 					_movie.Pause();
-					SetButtonEnabled( "PauseButton", false );
-					SetButtonEnabled( "PlayButton", true );
+					
 				}
 				OnVideoSeekSlider();
 			}
@@ -150,8 +148,7 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
 				_movie.Play();
 				_wasPlayingOnScrub = false;
 
-				SetButtonEnabled( "PlayButton", false );
-				SetButtonEnabled( "PauseButton", true );
+				
 			}			
 		}
 
@@ -214,15 +211,7 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
             
 		}
 
-		private void SetButtonEnabled( string objectName, bool bEnabled )
-		{
-			Button button = GameObject.Find( objectName ).GetComponent<Button>();
-			if( button )
-			{
-				button.enabled = bEnabled;
-				button.GetComponentInChildren<CanvasRenderer>().SetAlpha( bEnabled ? 1.0f : 0.4f );
-			}
-		}
+		
 	}
 }
 #endif

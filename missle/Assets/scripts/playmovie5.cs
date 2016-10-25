@@ -21,6 +21,7 @@ public class playmovie5 : MonoBehaviour {
 
     void Start()
     {
+        kj = 0;
         player = GetComponent<RawImage>();
       
         for (int i = 0; i < Directory.GetFiles(@"C:\Users\chile109\Desktop\武裝\"+ getFile.fileName.text).Length; i++)
@@ -28,7 +29,7 @@ public class playmovie5 : MonoBehaviour {
             if (i <= dirInfo.GetFiles("*.jpg").Length - 1)
             {//取得jpg數量
                 url = "file://" + target + getFile.fileName.text +  @"\images" + i + ".jpg";      //圖片路徑
-                print(url);
+                
                 arwww.Add(new WWW(url));//加入圖片陣列
             }
             
@@ -65,15 +66,16 @@ public class playmovie5 : MonoBehaviour {
     public void right()
     {
         kj += 1;
-        print(kj);        
+        timespanBar2.page_index += 1;
         if (kj > dirInfo.GetFiles("*.jpg").Length - 1)
         {
             movie.SetActive(true);           
             this.gameObject.SetActive(false);
         }
-        else 
-           StartCoroutine(loadPic(kj));
-        
+        else
+        {
+            StartCoroutine(loadPic(kj));
+        }
 
     }
     public void left()
@@ -81,6 +83,7 @@ public class playmovie5 : MonoBehaviour {
         if (kj > 0)
         { //減少
             kj -= 1;
+            timespanBar2.page_index -= 1;
             StartCoroutine(loadPic(kj));
         }
         
