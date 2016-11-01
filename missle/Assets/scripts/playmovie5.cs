@@ -35,7 +35,7 @@ public class playmovie5 : MonoBehaviour {
             
         }
 
-                  
+        
         StartCoroutine(loadPic(0));
     }
     IEnumerator loadPic(int mk)
@@ -59,18 +59,16 @@ public class playmovie5 : MonoBehaviour {
 
         }
     }
-    void Update()
-    {
-        
-    }
     public void right()
     {
         kj += 1;
         timespanBar2.page_index += 1;
         if (kj > dirInfo.GetFiles("*.jpg").Length - 1)
         {
-            movie.SetActive(true);           
+            movie.SetActive(true);
+            vcr.SetActive(true);
             this.gameObject.SetActive(false);
+        
         }
         else
         {

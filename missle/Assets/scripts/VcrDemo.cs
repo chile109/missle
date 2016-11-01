@@ -34,7 +34,7 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
         private AVProWindowsMediaMovie[] _movies;
         private int _moviePlayIndex;
         private int _movieLoadIndex;
-        private int _index = -1;
+        public  int _index = -1;
         private bool _loadSuccess = true;
         private int _playItemIndex = -1;
 
@@ -45,9 +45,8 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
         DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\chile109\Desktop\display");
 
 
-        private void NextMovie()
-        {
-            Pause();
+        public void NextMovie()
+        {            
             
             if (_filenames.Count > 0)
             {
@@ -78,20 +77,14 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
                 
             }
         }
-        public void Pause()
-        {
-            if (PlayingMovie != null)
-            {
-                PlayingMovie.Pause();
-            }
-        }
+        
         public void Next()
         {
             timespanBar2.page_index += 1;
             playmovie5.kj = dirInfo.GetFiles("*.jpg").Length - 1;
             NextMovie();
-            
-            
+
+                        
         }
         public void Previous()
         {
@@ -105,6 +98,7 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
             }
             else
             {
+                _movie.MovieInstance.Rewind();
                 this.gameObject.SetActive(false);
                 movie.SetActive(false);
                 image.SetActive(true);
@@ -188,7 +182,6 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
             {
                 _filenames.Add("movies" + i + ".ogv");
             }
-
             NextMovie();
         }
 
@@ -201,13 +194,9 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
                 float d = time / _movie.MovieInstance.DurationSeconds;
                 _setVideoSeekSliderValue = d;
                 _videoSeekSlider.value = d;
+                
             }
-
-            if (!_loadSuccess)
-            {
-                _loadSuccess = true;
-                NextMovie();
-            }
+            
             
 		}
 

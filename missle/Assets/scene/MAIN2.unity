@@ -2233,7 +2233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172232db9ff7f8c4cbdfae6b5817530f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vcrdemo: {fileID: 0}
+  vcrdemo: {fileID: 2088807593}
   movie: {fileID: 697809758}
   vcr: {fileID: 2088807592}
   target: "C:\\Users\\chile109\\Desktop\\\u6B66\u88DD\\"
@@ -3022,7 +3022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2088807593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3042,6 +3042,7 @@ MonoBehaviour:
   movie: {fileID: 697809758}
   image: {fileID: 1475527350}
   _videoSeekSlider: {fileID: 715319522}
+  _index: -1
 --- !u!4 &2088807594
 Transform:
   m_ObjectHideFlags: 0
