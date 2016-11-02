@@ -11,6 +11,8 @@ public class title : MonoBehaviour {
     AudioSource sound;
     MovieTexture movie;
 
+    public string LoadScene = "武裝";
+
 
     // Use this for initialization
     void Start()
@@ -31,7 +33,7 @@ public class title : MonoBehaviour {
     {
         if (Input.GetMouseButton(0))
         {
-            SceneManager.LoadScene("MENU");
+            SceneManager.LoadScene(LoadScene);
 
         }
     }

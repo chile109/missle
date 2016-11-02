@@ -19,6 +19,6 @@ public class getFile : MonoBehaviour {
     public void go_Scene()
     {
         scene_index = Application.loadedLevel;
-        SceneManager.LoadScene("MAIN2");
+        SceneManager.LoadSceneAsync("MAIN2");
     }
 }

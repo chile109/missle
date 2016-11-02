@@ -29,6 +29,10 @@ public class timespanBar2 : MonoBehaviour {
         showText.text = xxx;
         showText2.text = xxx;
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            nextFire = Time.time + fireRate;
+        }
         if (obj2.activeSelf == false && myAnimator.GetCurrentAnimatorStateInfo(0).IsName("Main_movie_show"))
         {
             myAnimator.SetInteger("play", 5);

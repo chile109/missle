@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317c8fc21ebc1f4438cf9db3070987b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LoadScene: "\u6B66\u88DD"
 --- !u!114 &31713764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +407,7 @@ GameObject:
   - 92: {fileID: 2069057478}
   - 124: {fileID: 2069057477}
   - 81: {fileID: 2069057476}
+  - 114: {fileID: 2069057481}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -481,3 +483,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &2069057481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2069057475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab6319c52f6baf4d9380214d98c6fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}

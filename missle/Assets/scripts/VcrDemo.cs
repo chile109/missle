@@ -88,16 +88,17 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
         }
         public void Previous()
         {
-            
+            timespanBar2.page_index -= 1;
             if (_index > 0)
             {
-                timespanBar2.page_index -= 1;
+                
                 _index -= 2;
                 
                 NextMovie();                
             }
             else
             {
+               
                 _movie.MovieInstance.Rewind();
                 this.gameObject.SetActive(false);
                 movie.SetActive(false);

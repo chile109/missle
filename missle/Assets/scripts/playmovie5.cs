@@ -19,7 +19,7 @@ public class playmovie5 : MonoBehaviour {
     Texture2D img;
     public static int kj = 0;
 
-    void Start()
+    void Awake()
     {
         kj = 0;
         player = GetComponent<RawImage>();
@@ -33,9 +33,7 @@ public class playmovie5 : MonoBehaviour {
                 arwww.Add(new WWW(url));//加入圖片陣列
             }
             
-        }
-
-        
+        }        
         StartCoroutine(loadPic(0));
     }
     IEnumerator loadPic(int mk)
