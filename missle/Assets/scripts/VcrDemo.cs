@@ -42,8 +42,8 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
         public AVProWindowsMediaMovie LoadingMovie { get { return _movies[_movieLoadIndex]; } }
         
 
-        DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\chile109\Desktop\display");
-
+        DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\chile109\Desktop\武裝");
+        
 
         public void NextMovie()
         {            
@@ -171,6 +171,8 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
 
 		void Start()
 		{
+            dirInfo = new DirectoryInfo(_folder + getFile.fileName.text);
+            _folder = _folder + getFile.fileName.text;
             _movie._loop = false;
             _movieB._loop = false;
             _movies = new AVProWindowsMediaMovie[2];
@@ -182,6 +184,7 @@ namespace RenderHeads.Media.AVProWindowsMedia.Demos
             for (int i = 0; i < dirInfo.GetFiles("*.ogv").Length; i++)
             {
                 _filenames.Add("movies" + i + ".ogv");
+                print(_filenames);
             }
             NextMovie();
         }

@@ -3037,7 +3037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movie: {fileID: 829939171}
   _movieB: {fileID: 829939171}
-  _folder: C:\Users\chile109\Desktop\display
+  _folder: "C:\\Users\\chile109\\Desktop\\\u6B66\u88DD\\"
   _filenames: []
   movie: {fileID: 697809758}
   image: {fileID: 1475527350}
