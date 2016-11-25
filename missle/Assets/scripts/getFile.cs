@@ -7,6 +7,10 @@ public class getFile : MonoBehaviour {
     public static Text fileName;
     
     public static int scene_index;
+
+
+    public static string[] data_path = { @"C:\武裝\" ,  @"C:\Users\chile109\Desktop\武裝\"}; //讀取路徑資料庫
+
     public void loadfile()
     {
         fileName = GetComponent<Text>();
@@ -18,7 +22,7 @@ public class getFile : MonoBehaviour {
 
     public void go_Scene()
     {
-        scene_index = Application.loadedLevel;
+        scene_index = Application.loadedLevel;   //儲存上一場景的編號
         SceneManager.LoadSceneAsync("MAIN2");
     }
 }

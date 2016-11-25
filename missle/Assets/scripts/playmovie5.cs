@@ -8,12 +8,12 @@ using UnityEngine.UI;
 public class playmovie5 : MonoBehaviour {
     List<WWW> arwww = new List<WWW>();//圖片陣列
 
-    public RenderHeads.Media.AVProWindowsMedia.Demos.VcrDemo vcrdemo;
+    //public RenderHeads.Media.AVProWindowsMedia.Demos.VcrDemo vcrdemo;
     public GameObject movie;
     public GameObject vcr;
-    public string target  = @"C:\Users\chile109\Desktop\武裝\";
+    //public string target  = @"C:\Users\chile109\Desktop\武裝\";
     string url = "";
-    DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\chile109\Desktop\武裝\" + getFile.fileName.text);
+    DirectoryInfo dirInfo = new DirectoryInfo(getFile.data_path[getFile.scene_index - 1] + getFile.fileName.text);   //根據來源場景讀取特定檔案
 
     RawImage player;
     Texture2D img;
@@ -21,14 +21,15 @@ public class playmovie5 : MonoBehaviour {
 
     void Awake()
     {
+        
         kj = 0;
         player = GetComponent<RawImage>();
       
-        for (int i = 0; i < Directory.GetFiles(@"C:\Users\chile109\Desktop\武裝\"+ getFile.fileName.text).Length; i++)
+        for (int i = 0; i < Directory.GetFiles(getFile.data_path[getFile.scene_index - 1] + getFile.fileName.text).Length; i++)
         {
             if (i <= dirInfo.GetFiles("*.jpg").Length - 1)
             {//取得jpg數量
-                url = "file://" + target + getFile.fileName.text +  @"\images" + i + ".jpg";      //圖片路徑
+                url = "file://" + getFile.data_path[getFile.scene_index - 1] + getFile.fileName.text +  @"\images" + i + ".jpg";      //圖片路徑
                 
                 arwww.Add(new WWW(url));//加入圖片陣列
             }
@@ -59,6 +60,7 @@ public class playmovie5 : MonoBehaviour {
     }
     public void right()
     {
+        
         kj += 1;
         timespanBar2.page_index += 1;
         if (kj > dirInfo.GetFiles("*.jpg").Length - 1)
